@@ -1,0 +1,571 @@
+body{
+    background-color: white;
+    align-items: center;
+}
+
+marquee {
+    color: rgb(79, 12, 236);
+    font-size: x-large;
+}
+
+
+
+li{
+    display: inline-block;
+    padding: 15px;
+}
+
+.heading-text{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: larger;
+    position: relative;
+}
+
+.sup-heading-text{
+    font-weight: 300;
+    color: rgb(15, 77, 18);
+    text-align: center;
+}
+
+
+#firstName{
+    height: 6vh;
+    width: 30vh;
+    border-color: rgba(0, 0, 0, 0.28);
+    border-radius: 6px;
+}
+
+#lastName{
+    height: 6vh;
+    width: 30vh;
+    border-color: rgba(0, 0, 0, 0.28);
+    border-radius: 6px;
+}
+
+#Email{
+    height: 6vh;
+    width: 30vh;
+    border-color: rgba(0, 0, 0, 0.28);
+    border-radius: 6px;
+
+}
+
+#DOB{
+    height: 6vh;
+    width: 30vh;
+    border-color: rgba(0, 0, 0, 0.28);
+    border-radius: 6px;
+}
+
+#gender-id{
+    font-size:15px;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+}
+
+.gender-selection{
+    position: center;
+    right: 25vh;
+    color: rgb(38, 119, 51);
+}
+
+
+::placeholder{
+    font-weight: lighter;
+    color: rgba(0, 0, 0, 0.31);
+}
+
+.dob-textField{
+    position: center relative;
+    right: 16.5vh;
+}
+
+.mainbtn{
+    background-color: #F9C030;
+    border-style: none;
+    width: 20vh;
+    height: 5vh;
+    
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.mainbtn-txt{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    position:relative;
+    bottom: 35px;
+}
+
+.mainbtn:hover{
+    background-color: #DDA71D;
+}
+
+.addbtn{
+    background-color: #F9C030;
+    border-style: none;
+    width: 20vh;
+    height: 5vh;
+    
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.addbtn-txt{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    position:relative;
+    bottom: 35px;
+}
+
+.addbtn:hover{
+    background-color: #DDA71D;
+}
+
+.subbtn{
+    background-color: #F9C030;
+    border-style: none;
+    width: 20vh;
+    height: 5vh;
+    
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.subbtn-txt{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    position:relative;
+    bottom: 35px;
+}
+
+.subbtn:hover{
+    background-color: #DDA71D;
+}
+
+.mulbtn{
+    background-color: #F9C030;
+    border-style: none;
+    width: 20vh;
+    height: 5vh;
+    
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.mulbtn-txt{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    position:relative;
+    bottom: 35px;
+}
+
+.mulbtn:hover{
+    background-color: #DDA71D;
+}
+
+.divbtn{
+    background-color: #F9C030;
+    border-style: none;
+    width: 20vh;
+    height: 5vh;
+    
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.divbtn-txt{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    position:relative;
+    bottom: 35px;
+}
+
+.divbtn:hover{
+    background-color: #DDA71D;
+}
+
+.register-btn{
+    background-color: #F9C030;
+    border-style: none;
+    width: 20vh;
+    height: 5vh;
+    
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.reg-btn-div{
+    position: relative;
+    top: 2vh;
+}
+
+.register-btn:hover{
+    background-color: #DDA71D;
+}
+
+.reg-btn-text{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    position:relative;
+    bottom: 35px;
+}
+
+.play-btn{
+    background-color: #F9C030;
+    border-style: none;
+    width: 20vh;
+    height: 5vh;
+
+
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.play-btn-div{
+    position: relative;
+    top: 2vh;
+}
+
+.play-btn:hover{
+    background-color: #DDA71D;
+    
+}
+
+.play-btn-text{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    position:relative;
+    bottom: 35px;
+}
+
+.end-btn{
+    background-color: #F9C030;
+    border-style: none;
+    width: 20vh;
+    height: 5vh;
+    
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.end-btn-div{
+    position: relative;
+    top: 2vh;
+}
+
+.end-btn:hover{
+    background-color: #DDA71D;
+}
+
+.end-btn-text{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    position:relative;
+    bottom: 35px;
+}
+
+.accept-btn{
+    background-color: #F9C030;
+    border-style: none;
+    width: 20vh;
+    height: 5vh;
+    
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.accept-btn-div{
+    position: relative;
+    top: 2vh;
+}
+
+.accept-btn:hover{
+    background-color: #DDA71D;
+}
+
+.accept-btn-text{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    position:relative;
+    bottom: 35px;
+}
+
+.next-btn{
+    background-color: #F9C030;
+    border-style: none;
+    width: 20vh;
+    height: 5vh;
+   
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.next-btn-div{
+    position: relative;
+    top: 2vh;
+}
+
+.next-btn:hover{
+    background-color: #DDA71D;
+}
+
+.next-btn-text{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    position:relative;
+    bottom: 35px;
+}
+
+#userAnswer{
+    height: 6vh;
+    width: 30vh;
+    border-color: rgba(0, 0, 0, 0.28);
+    border-radius: 6px;
+}
+
+.general-btn-div{
+    position: relative;
+    top: 2vh;
+}
+
+.play {
+    margin: 50px auto 30px;
+    position: relative;
+    width: 1000px;
+    background: rgb(211, 214, 11);
+    border-radius: 15px;
+    padding: 60px 45px 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+form:hover {
+    transition: 0.8s;
+    letter-spacing: 1px
+}
+
+button {
+    transition: 0.5s;
+}
+
+legend {
+    font-size: xx-large;
+    color: rgb(23, 77, 32);
+}
+
+body:hover {
+    transition: 0.5s;
+}
+
+
+.topbtn {
+    display: inline-block;
+    padding: 40px;
+}
+
+.lowerbtn {
+    display: inline-block;
+    padding: 40px;
+}
+
+h4 {
+    color: rgb(23, 77, 32);
+}
+
+p {
+    color: rgb(38, 119, 51);
+}
+
+textarea {
+    background-color: #F9C030;
+    color: white;
+}
+
+/*
+shows the value 
+*/
+/* progress {
+    text-align: right;
+  } */
+  progress:after {
+    content: attr(value)'%';
+  }
+
+.gfcHeading{
+    text-align: left;
+    font-size: larger;
+    font-weight: bold;
+}
+
+
+progress{
+  width: 250px;
+  height: 30px;
+  border-radius: 2px;
+  border: 1px solid black;
+  color: rgb(38, 119, 51);
+}
+
+label{
+    color: rgb(23, 77, 32);
+}
+
+progress[value]{
+    text-align: right;
+}
+
+progress::-webkit-progress-bar {
+    background-color: white;
+    border: black;
+  }
+
+#malePercentageBar::-webkit-progress-value {
+    background-color: red;
+    border-radius:2px;
+  }
+  
+#femalePercentageBar::-webkit-progress-value {
+    background-color: yellow;
+    border-radius:2px;
+}
+
+#lessThanFifity::-webkit-progress-value {
+    background-color: blue;
+    border-radius:2px;
+}
+#fifToNine::-webkit-progress-value {
+    background-color: orange;
+    border-radius:2px;
+}
+#sixToNine::-webkit-progress-value {
+    background-color: palegoldenrod;
+    border-radius:2px;
+}
+#sevenToNine::-webkit-progress-value {
+    background-color: purple;
+    border-radius:2px;
+}
+#eightToNine::-webkit-progress-value {
+    background-color:cyan;
+    border-radius:2px;
+}
+#nineToNine::-webkit-progress-value {
+    background-color:salmon;
+    border-radius:2px;
+}
+#hundred::-webkit-progress-value {
+    background-color: gold;
+    border-radius:2px;
+}
+
+#femalep{
+    position: relative;
+    right: 1vh;
+}
+
+#lessfiftyp{
+    position: relative;
+    right: 3vh;
+}
+
+#hundredp {
+    position: relative;
+    left: 3vh;
+}
+/* 
+.bar-con{
+    position: relative;
+    left: 30vh;
+} */
+

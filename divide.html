@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Division</title>
+	<link rel="stylesheet" href="math.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+		rel="stylesheet">
+
+	<script type="text/javascript">
+		var PlayersData = [];
+		var correctAnswer; var questNum = 0; var pScore = 0;
+		var cQuestNum = 0; var inQuestNum = 0;
+		var tempPscore = 0; var maleCounter = 0; femaleCounter = 0;
+		var lessThanFifity = 0; var fifToNine = 0; var sixToNine = 0;
+		var sevenToNine = 0; var eightToNine = 0; var nineToNine = 0;
+		var hundred = 0; var amtregistered = 0; var totaltaken = 0;
+
+        function main(){
+            window.location = "index.html"
+        }
+
+
+		function Register() {
+			let fname = document.getElementById('firstName').value;
+			let lname = document.getElementById('lastName').value;
+			let genDer = document.getElementById('gender').value;
+			//let eMail = document.getElementById('Email').value;
+			verMail = "@gmail.com";
+
+			if (fname.length <= 3 || lname.length <= 3 /*|| !eMail.includes(verMail)*/) {
+				window.alert("Your name must consist of more than 3 letters");
+				window.alert("Please enter a valid gmail address");
+			}
+			else if (fname.length > 3 || lname.length > 3 /*|| eMail.includes(verMail)*/) {
+				let fullname = fname.concat(" ", lname);
+
+
+				var bday, today, currentDate, startDate, endDate, difference, ageDate, calculatedAge;
+				bday = document.getElementById("DOB").value;
+				if (bday == 0) {
+					window.alert("Please enter your date of birth");
+				}
+				else {
+					today = new Date();
+					currentDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+					startDate = new Date(bday);
+					endDate = new Date(currentDate);
+					difference = endDate - startDate.getTime();
+					ageDate = new Date(difference);
+					calculatedAge = Math.abs(ageDate.getUTCFullYear() - 1970);
+
+
+
+					if (calculatedAge > 12) {
+						window.alert("You are too old for this game");
+					}
+					else if (calculatedAge < 8) {
+						window.alert("You are too young for this game");
+					}
+					else {
+						window.alert("Lets Play");
+						PlayersData.push(["Name: " + fullname, "Gender: " + genDer, "Age: " + calculatedAge]);
+						disableFields();
+						enableButtons();
+						if (genDer == "Male") {
+							maleCounter += 1;
+
+						} else {
+							femaleCounter += 1;
+						}
+					}
+				}
+
+			}
+			else {
+				window.alert("The field was entered incorrectly");
+			}
+
+		}
+
+		function PlayGame() {
+			var usDis1 = document.getElementById('userAnswer').disabled = false;
+			var showInput = document.getElementById('playArea').style.display = 'block';
+			//let genNum1 = Math.floor(Math.random() * 20 / 2) * 2;
+            let genNum2 = Math.floor(Math.random() * 1) + 2;
+            
+            var genNum1;
+            do{
+                genNum1 = Math.floor(Math.random()*20 +1)
+            }while (genNum1 > genNum2);
+
+			document.getElementById("paraNum").innerHTML = genNum1 + " / " + genNum2;
+			correctAnswer = genNum1 / genNum2;
+			document.getElementById("cMessage").innerHTML = " ";
+			document.getElementById("cMessage2").innerHTML = " ";
+			var questions = [genNum1 + " / " + genNum2];
+			PlayersData.push(["Question: " + questions]);
+			questNum++;
+		}
+
+		function checkAnswer() {
+			let val1 = document.getElementById("userAnswer").value;
+			PlayersData.push(["Your Answer: " + val1]);
+			var status;
+			var usDis2;
+			pScore = Math.round(cQuestNum / questNum * 100);
+
+			if (val1 == 0) {
+				document.getElementById("cMessage").innerHTML = "Please enter a number";
+			}
+			else {
+				if (val1 != correctAnswer) {
+					document.getElementById("cMessage").innerHTML = "That's not correct";
+					document.getElementById("cMessage2").innerHTML = "The correct answer is " + correctAnswer;
+					status = "Incorrect";
+					usDis2 = document.getElementById('userAnswer').disabled = true;
+					inQuestNum++;
+
+				}
+				else if (val1 == correctAnswer) {
+					document.getElementById("cMessage").innerHTML = "That's correct";
+					status = "Correct";
+					usDis2 = document.getElementById('userAnswer').disabled = true;
+					cQuestNum++;
+
+				}
+				PlayersData.push(["Status: " + status]);
+				var valRemove = document.getElementById('userAnswer'); //removing a specific field.
+				valRemove.value = valRemove.defaultValue; //and placing its default value.
+				showAll();
+			}
+
+		}
+
+		function showAll() {
+
+			let print = document.getElementById("showallplayers");
+			print.innerHTML = "";
+			for (let player of PlayersData) {
+				print.innerHTML += player.join(', ') + "\n";
+			}
+			//let rSet = document.getElementById("registration-form").reset(); 
+			//let rSet = document.getElementById('showallplayers').reset();
+		}
+
+		function findPercentageScore() {
+
+			tDay = new Date();
+
+			var showTxt2 = document.getElementById('txtDiv2').style.display = 'block';
+			var showTxt = document.getElementById('txtDiv1').style.display = 'block'; //changing the hidden property of the div container to be visible once information is added.
+			var fn = document.getElementById('firstName').value; var ln = document.getElementById('lastName').value; var pScoreOut = [];
+			pScoreOut.push([" First Name: " + fn]);
+			pScoreOut.push([" Last Name: " + ln]);
+			if (cQuestNum == questNum) {
+				pScore = 100;
+			}
+			pScoreOut.push([" Percentage Score: " + pScore + "%"]);
+			pScoreOut.push([" Total amount of questions: " + questNum]);
+			pScoreOut.push([" Total amount of correct answers: " + cQuestNum]);
+			pScoreOut.push([" Total amount of incorrect answers: " + inQuestNum]);
+			pScoreOut.push([" Date: " + tDay]);
+			document.getElementById('showpercentage').innerHTML = pScoreOut;
+			let rSet = document.getElementById("registration-form").reset();
+			enableFields();
+			disableButtons();
+			document.getElementById("reg-btn").disabled = false;
+			questNum = 0; cQuestNum = 0; inQuestNum = 0;
+			//let rSet2 = document.getElementById('showpercentage').reset();
+
+		}
+
+
+
+		function disableFields() {
+			document.getElementById("reg-btn").disabled = true;
+			document.getElementById("firstName").disabled = true;
+			document.getElementById("lastName").disabled = true;
+			//document.getElementById("Email").disabled = true;
+			document.getElementById("gender").disabled = true;
+			document.getElementById("DOB").disabled = true;
+		}
+
+		function enableFields() {
+			document.getElementById("reg-btn").disabled = false;
+			document.getElementById("firstName").disabled = false;
+			document.getElementById("lastName").disabled = false;
+			//document.getElementById("Email").disabled = false;
+			document.getElementById("gender").disabled = false;
+			document.getElementById("DOB").disabled = false;
+		}
+
+		function disableButtons() {
+			document.getElementById("p-btn").disabled = true;
+			document.getElementById("e-btn").disabled = true;
+			document.getElementById("a-btn").disabled = true;
+			document.getElementById("n-btn").disabled = true;
+		}
+
+		function disEnable() {
+			document.getElementById("p-btn").disabled = true;
+			document.getElementById("firstName").disabled = false;
+			document.getElementById("lastName").disabled = false;
+			//document.getElementById("Email").disabled = false;
+			document.getElementById("gender").disabled = false;
+			document.getElementById("DOB").disabled = false;
+			document.getElementById("a-btn").disabled = true;
+			document.getElementById("n-btn").disabled = true;
+		}
+
+		function enableButtons() {
+			document.getElementById("p-btn").disabled = false;
+			document.getElementById("e-btn").disabled = false;
+			document.getElementById("a-btn").disabled = false;
+			document.getElementById("n-btn").disabled = false;
+		}
+
+		/*
+	gets the id of the progress bar and sets the value and when the end button is clicked
+	it will call this fucntion
+	*/
+		function showfreq() {
+
+			//this sets the progress bar for percentage
+			// document.getElementById("percentageBar").value = pScore;
+			// tempPscore = pScore;
+
+			//document.getElementById("malePercentageBar").value = maleCounter;
+			//document.getElementById("femalePercentageBar").value = femaleCounter;
+
+			//Male vs Female Percentage
+			amtregistered = maleCounter + femaleCounter;
+
+			malepercent = Math.round(maleCounter/ amtregistered*100);
+
+			fempercent = Math.round(femaleCounter/amtregistered*100);
+
+			document.getElementById("malePercentageBar").value = malepercent;
+			document.getElementById("femalePercentageBar").value = fempercent;
+
+
+			
+
+			if (pScore < 50) {
+				lessThanFifity += 1;
+
+			} else if (pScore >= 50 && pScore <= 59) {
+				fifToNine++;
+
+			} else if (pScore >= 60 && pScore <= 69) {
+				sixToNine++;
+
+			} else if (pScore >= 70 && pScore <= 79) {
+				sevenToNine++;
+
+			} else if (pScore >= 80 && pScore <= 89) {
+				eightToNine++;
+
+			} else if (pScore >= 90 && pScore <= 99) {
+				nineToNine++;
+
+			} else if (pScore == 100) {
+				hundred++;
+
+			}
+			totaltaken = lessThanFifity + fifToNine + sixToNine +
+			sevenToNine + eightToNine + nineToNine + hundred;
+
+			document.getElementById("lessThanFifity").value = 
+			Math.round(lessThanFifity/totaltaken*100);
+
+			document.getElementById("fifToNine").value = 
+			Math.round(fifToNine/totaltaken*100);
+
+			document.getElementById("sixToNine").value = 
+			Math.round(sixToNine/totaltaken*100);
+
+			document.getElementById("sevenToNine").value = 
+			Math.round(sevenToNine/totaltaken*100);
+
+			document.getElementById("eightToNine").value = 
+			Math.round(eightToNine/totaltaken*100);
+
+			document.getElementById("nineToNine").value = 
+			Math.round(nineToNine/totaltaken*100);
+
+			document.getElementById("hundred").value = 
+			Math.round(hundred/totaltaken*100);
+
+			pScore = 0;
+		
+		}
+
+
+	</script>
+	<style>
+		body{
+			background-image: url('mathImg/KIDZMATH.jpeg');
+		}
+	</style>
+</head>
+
+<body background="#FCFCFC" onload="disableButtons()">
+	<form action="" id="registration-form" class="play">
+		<fieldset>
+			<legend> <b>Division - Game</b> </legend>
+			<div class="heading-text">
+
+                <table cellpadding="50" >
+                    <tr>
+                        <td><button type="button" onclick="main()" class="mainbtn"> <h5 class="mainbtn-txt">BACK TO MAIN</h5> </button></td>
+                        <td align="center"><h1 style="color: rgb(38, 119, 51)">Sign Up Here! <br>And <br>Lets Get Dividing!</h1>
+                                <p>
+                                    Welcome to Cool Kidz Division Game.
+                                </p>
+                        </td>
+                    </tr>
+                </table>
+					
+				<br><br>
+				<input tel="name" id="firstName" name="firstName" placeholder="First Name">
+				&nbsp;&nbsp;&nbsp;
+				<input tel="name" id="lastName" name="lastName" placeholder="Last Name">
+				<br><br>
+
+				&nbsp;&nbsp;
+				<div class="dob-textField">
+					<input type="date" id="DOB">
+				</div>
+				<br><br>
+				<div class="gender-selection">
+					<label for="gender" id="gender-id">Gender:</label>
+					<select name="gender" id="gender">
+						<option value="Male" id="m1">Male</option>
+						<option value="Female" id="fm1">Female</option>
+					</select>
+				</div>
+				&nbsp;&nbsp;
+				<div class="reg-btn-div">
+					<button type="button" id="reg-btn" form="registration-form" class="register-btn" 
+						onclick="Register()">
+						<h6 class="reg-btn-text">Register</h6>
+					</button>
+				</div>
+				&nbsp;&nbsp;
+				<table align="center" cellpadding="10" cellspacing="5">
+					<tr>
+						<td>
+							<div class="play-btn-div">
+								<button type="button" id="p-btn" form="registration-form" class="play-btn" onclick="PlayGame()">
+									<h6 class="play-btn-text">Start</h6>
+								</button>
+							</div>
+						</td> 
+						<td rowspan="2">
+							<div id="playArea" name="playArea" style="display: none">
+								<center>
+									<table id="playTable" name="playTable" border="2" width="200" bgcolor="#DDA71D">
+										<tr>
+											<td>
+												<center><h4>Lets Play The Game</h4></center>
+												<center><p id="paraNum" name="paraNum" disabled></p></center>
+												<center><p id="cMessage" name="cMessage"></p></center>
+												<center><p id="cMessage2" name="cMessage2"></p></center>
+												<center><p id="correctNum" name="correctNum"></p></center>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<input tel="name" id="userAnswer" name="userAnswer" placeholder="1,2,3,4,5,...">
+											</td>
+										</tr>
+									</table>
+								</center>
+							</div>
+						</td> 
+						<td>
+							<div class="next-btn-div">
+								<button type="button" id="n-btn" form="registration-form" class="next-btn" onclick="PlayGame()">
+									<h6 class="next-btn-text">Next</h6>
+								</button>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="accept-btn-div">
+								<button type="button" id="a-btn" form="registration-form" class="accept-btn" onclick="checkAnswer()">
+									<h6 class="accept-btn-text">Accept</h6>
+								</button>
+							</div>
+						</td>
+						<td>
+							<div class="end-btn-div">
+								<button type="button" id="e-btn" form="registration-form" class="end-btn" 
+									onclick="findPercentageScore(); showfreq()">
+									<h6 class="end-btn-text">End</h6>
+								</button>
+							</div>
+						</td>
+					</tr>
+		
+				</table>
+
+				<div id="txtDiv2" name="txtDiv2" style="display: none">
+					<textarea name="showpercentage" id="showpercentage" cols="100" rows="10"></textarea>
+				</div>
+
+				<div id="txtDiv1" name="txtDiv1" style="display: none">
+					<textarea name="showallplayers" id="showallplayers" cols="100" rows="10"></textarea>
+				</div>
+
+				<div class="bar-con">
+					<p class="gfcHeading">Gender Frequency Chart:</p>
+	
+					<div>
+						<label for="malePercentageBar">Males</label>
+						<progress id="malePercentageBar" value="0" max="100"></progress>
+					</div>
+					<br>
+					<div id="femalep">
+						<label for="femalePercentageBar">Females</label>
+						<progress id="femalePercentageBar" value="0" max="100"></progress>
+					</div>
+					<div>
+						<p class="gfcHeading">Percentage Score Chart:</p>
+					</div>
+					<div id="showcharts">
+						<div id="lessfiftyp">
+							<label for="lessThanFifity">Less Than 50</label>
+							<progress id="lessThanFifity" value="0" max="100"></progress>
+							<br><br>
+						</div>
+						<label for="fifToNine"> 50 to 59</label>
+						<progress id="fifToNine" value="0" max="100"></progress>
+						<br><br>
+						<label for="sixToNine">60 to 69</label>
+						<progress id="sixToNine" value="0" max="100"></progress>
+						<br><br>
+						<label for="sevenToNine">70 to 79</label>
+						<progress id="sevenToNine" value="0" max="100"></progress>
+						<br><br>
+						<label for="eightToNine">80 to 89</label>
+						<progress id="eightToNine" value="0" max="100"></progress>
+						<br><br>
+						<label for="nineToNine">90 to 99</label>
+						<progress id="nineToNine" value="0" max="100"></progress>
+						<br><br>
+						<div id="hundredp">
+							<label for="hundred">100</label>
+							<progress id="hundred" value="0" max="100"></progress>
+							<br><br>
+						</div>
+					</div>
+				</div>
+		</fieldset>
+	</form>
+</body>
+
+</html>

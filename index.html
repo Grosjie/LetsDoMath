@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics</title>
+    <link rel="stylesheet" href="math.css">
+
+    <script type="text/javascript">
+        function addbtn(){
+            window.location = "add.html"
+        }
+        function subbtn(){
+            window.location = "subtract.html"
+        }
+        function mulbtn(){
+            window.location = "multiply.html"
+        }
+        function divbtn(){
+            window.location = "divide.html"
+        }
+    </script>
+
+    <style>
+        body{
+            background-image: url('mathImg/KIDZMATH.jpeg');
+        }
+    </style>
+</head>
+<body>
+    <marquee width="100%" height="100px" direction="left">
+        <h1> * / + - COOL KIDZ MATHEMATICS GAME - + / * </h1>
+    </marquee>
+    <form action="" class="play">
+        <fieldset>
+            <legend> <b>Mathematics + Game</b> </legend>
+            <div class="heading-text">
+                <h1 style="color: rgb(38, 119, 51)">Select Your Operation! <br>And <br>Lets Do Some Maths!</h1>
+            </div>
+
+            <center>
+                <nav class="nav">
+                    <ul>
+                        <li><button type="button" onclick="addbtn()" class="addbtn"> <h5 class="addbtn-txt">Lets Add! <br> + </h5> </button></li>
+                        <li><button type="button" onclick="subbtn()" class="subbtn"> <h5 class="subbtn-txt">Lets Subtract! <br> - </h5> </button> </li>
+                        <li><button type="button" onclick="mulbtn()" class="mulbtn"> <h5 class="mulbtn-txt">Lets Multiply! <br> x </h5> </button> </li>
+                        <li><button type="button" onclick="divbtn()" class="divbtn"> <h5 class="divbtn-txt">Lets Divide! <br> / </h5> </button> </li>
+                    </ul>
+                </nav>
+            </center>
+
+        </fieldset>
+    </form>
+</body>
+</html>
