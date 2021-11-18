@@ -104,7 +104,7 @@ li{
     color: white;
     font-size: 14px;
     position:relative;
-    bottom: 35px;
+    bottom: 5vh;
 }
 
 .mainbtn:hover{
@@ -134,7 +134,7 @@ li{
     color: white;
     font-size: 14px;
     position:relative;
-    bottom: 35px;
+    bottom: 5vh;
 }
 
 .addbtn:hover{
@@ -164,7 +164,7 @@ li{
     color: white;
     font-size: 14px;
     position:relative;
-    bottom: 35px;
+    bottom: 5vh;
 }
 
 .subbtn:hover{
@@ -194,7 +194,7 @@ li{
     color: white;
     font-size: 14px;
     position:relative;
-    bottom: 35px;
+    bottom: 5vh;
 }
 
 .mulbtn:hover{
@@ -224,7 +224,7 @@ li{
     color: white;
     font-size: 14px;
     position:relative;
-    bottom: 35px;
+    bottom: 5vh;
 }
 
 .divbtn:hover{
